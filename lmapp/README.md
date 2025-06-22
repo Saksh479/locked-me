@@ -5,22 +5,22 @@ LockedMe.com is a command-line file management application developed for **Compa
 
 ##  Developer Information
 
-- **Developer**: Your Name
-- **Role**: Full Stack Developer
-- **Company**: Company Lockers Pvt. Ltd.
-- **Version**: 1.0
-- **Development Period**: 3 Weeks (15 Working Days)
+- *Developer*: Your Name
+- *Role*: Full Stack Developer
+- *Company*: Company Lockers Pvt. Ltd.
+- *Version*: 1.0
+- *Development Period*: 3 Weeks (15 Working Days)
 
 ##  Application Features
 
 ### Core Functionalities
 
-1. ** Display Files**: List all files in ascending order
-2. ** Add Files**: Add new files to the directory
-3. ** Delete Files**: Remove files from the directory (case-sensitive)
-4. ** Search Files**: Search for specific files (case-sensitive)
-5. ** Navigation**: User-friendly menu navigation
-6. ** Exit**: Graceful application termination
+1. *Display Files*: List all files in ascending order
+2. *Add Files*: Add new files to the directory
+3. *Delete Files*: Remove files from the directory (case-sensitive)
+4. *Search Files*: Search for specific files (case-sensitive)
+5. *Navigation*: User-friendly menu navigation
+6. *Exit*: Graceful application termination
 
 ### Technical Features
 
