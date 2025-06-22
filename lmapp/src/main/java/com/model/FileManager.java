@@ -11,11 +11,13 @@ public class FileManager {
     private final String DEFAULT_DIRECTORY = "lockedme_files";
     private final Path directoryPath;
     private Set<String> virtualFileSystem;
+
     public FileManager() {
         this.directoryPath = Paths.get(DEFAULT_DIRECTORY);
         this.virtualFileSystem = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         loadExistingFiles();
     }
+
     private void loadExistingFiles() {
         try {
             if (Files.exists(directoryPath) && Files.isDirectory(directoryPath)) {
@@ -28,6 +30,7 @@ public class FileManager {
             System.err.println("Error loading existing files: " + e.getMessage());
         }
     }
+
     public boolean addFile(String fileName) throws IOException {
         if (fileName == null || fileName.trim().isEmpty()) {
             throw new IllegalArgumentException("File name cannot be null or empty");
@@ -45,6 +48,7 @@ public class FileManager {
             throw new IOException("Failed to create file: " + fileName, e);
         }
     }
+
     public boolean deleteFile(String fileName) throws IOException {
         if (fileName == null || fileName.trim().isEmpty()) {
             throw new IllegalArgumentException("File name cannot be null or empty");
@@ -66,6 +70,7 @@ public class FileManager {
             throw new IOException("Failed to delete file: " + trimmedFileName, e);
         }
     }
+
     public boolean searchFile(String fileName) {
         if (fileName == null || fileName.trim().isEmpty()) {
             return false;
@@ -74,24 +79,30 @@ public class FileManager {
         return virtualFileSystem.stream()
                 .anyMatch(file -> file.equals(trimmedFileName));
     }
+
     public List<String> getAllFilesSorted() {
         List<String> sortedFiles = new ArrayList<>(virtualFileSystem);
         Collections.sort(sortedFiles, String.CASE_INSENSITIVE_ORDER);
         return sortedFiles;
     }
+
     public int getFileCount() {
         return virtualFileSystem.size();
     }
+
     public boolean isEmpty() {
         return virtualFileSystem.isEmpty();
     }
+
     public String getDirectoryPath() {
         return directoryPath.toAbsolutePath().toString();
     }
+
     public void refresh() {
         virtualFileSystem.clear();
         loadExistingFiles();
     }
+
     public List<String> searchFilesByPattern(String pattern) {
         if (pattern == null || pattern.trim().isEmpty()) {
             return new ArrayList<>();
@@ -102,6 +113,7 @@ public class FileManager {
                 .sorted(String.CASE_INSENSITIVE_ORDER)
                 .collect(Collectors.toList());
     }
+
     public Map<String, Object> getFileStatistics() {
         Map<String, Object> stats = new HashMap<>();
         stats.put("totalFiles", virtualFileSystem.size());
